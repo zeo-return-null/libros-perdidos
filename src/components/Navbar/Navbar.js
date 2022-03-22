@@ -12,24 +12,24 @@ function Navbar() {
 					<li><a href="." className="Button">Categorias</a>
 						<ul className="Categories">
 							<li className="CategoryItem">
-								<a href="#" className="Button">Categoria 1</a>
+								<a href="." className="Button">Categoria 1</a>
 								</li>
 							<li className="CategoryItem">
-								<a href="#" className="Button">Categoria 2</a>
+								<a href="." className="Button">Categoria 2</a>
 								</li>
 							<li className="CategoryItem">
-								<a href="#" className="Button">Categoria 3</a>
+								<a href="." className="Button">Categoria 3</a>
 								</li>
 							<li className="CategoryItem">
-								<a href="#" className="Button">Categoria 4</a>
+								<a href="." className="Button">Categoria 4</a>
 								</li>
 						</ul>
 					</li>
 					<li>
-						<a href="#" className="Button">Login</a>
+						<a href="." className="Button">Login</a>
 						</li>
 					<li>
-						<a href="#" className="Button">Carrito</a>
+						<a href="." className="Button">Carrito</a>
 						</li>
 				</ul>
 			</nav>
