@@ -1,9 +1,18 @@
-import Navbar from './components/Navbar/Navbar'
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
+const App = () => {
 
-function App() {
-	return ( <
-		Navbar / >
+	const user = "Juan";
+
+	return ( 
+		<>
+			<Header/>
+			<Main>
+				<ItemListContainer user = {user}/>
+			</Main>
+		</>
 	);
 }
 

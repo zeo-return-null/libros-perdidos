@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import CartWidget from '../CartWidget/CartWidget';
 
-
-function Nav() {
+const Nav =(props) => {
 	return (
 		<NavContainer>
 			<ul className="LinkList">
@@ -26,7 +26,7 @@ function Nav() {
 					<a href="." className="Button">Login</a>
 				</li>
 				<li>
-					{/* <CartWidget/> */}
+					<CartWidget/>
 				</li>
 			</ul>
 		</NavContainer>
@@ -36,6 +36,7 @@ function Nav() {
 export default Nav;
 
 const NavContainer = styled.nav`
+
 		margin-top: 1rem;
 
 	.LinkList {
@@ -94,6 +95,7 @@ const NavContainer = styled.nav`
 	.Button {
 		margin: 0 0.90rem 0.75rem 0.10rem;
 		padding: 0.5rem 1rem 0.5rem 1rem;
+		border: none;
 		text-decoration: none;
 		text-align: center;
 		border-radius: 1rem;

@@ -1,25 +1,26 @@
 import styled from 'styled-components';
 import logo from '../../assets/img/logo.svg';
-import  Nav  from './Nav/Nav';
+import Nav from './Nav/Nav';
 
 
-function Navbar() {
+const Header = () => {
 	return (
 		<NavbarContainer>
 			<img src={logo} className="Logo" alt="logo de libros perdidos"/>
-			<h3 className="Title">Bienvenido a la tienda de Libros Perdidos</h3>
+			<h3 className="Title">Libros Perdidos</h3>
 			<Nav/>
 		</NavbarContainer>
 	);
 }
 
-export default Navbar;
+export default Header;
 
 const NavbarContainer = styled.div`
+
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	background-color: #F3E9DD ;
+	background-color: #F3E9DD;
 
 	.Logo {
 		height: 4.65rem;
