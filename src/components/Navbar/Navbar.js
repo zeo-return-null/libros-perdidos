@@ -1,40 +1,37 @@
-import './Navbar.css';
+import styled from 'styled-components';
 import logo from '../../assets/img/logo.svg';
+import  Nav  from './Nav/Nav';
+
 
 function Navbar() {
 	return (
-		<div className='Navbar'>
+		<NavbarContainer>
 			<img src={logo} className="Logo" alt="logo de libros perdidos"/>
 			<h3 className="Title">Bienvenido a la tienda de Libros Perdidos</h3>
-			<nav className="Nav">
-				<ul className="LinkList">
-					<li><a href="." className="Button">Inicio</a></li>
-					<li><a href="." className="Button">Categorias</a>
-						<ul className="Categories">
-							<li className="CategoryItem">
-								<a href="." className="Button">Categoria 1</a>
-								</li>
-							<li className="CategoryItem">
-								<a href="." className="Button">Categoria 2</a>
-								</li>
-							<li className="CategoryItem">
-								<a href="." className="Button">Categoria 3</a>
-								</li>
-							<li className="CategoryItem">
-								<a href="." className="Button">Categoria 4</a>
-								</li>
-						</ul>
-					</li>
-					<li>
-						<a href="." className="Button">Login</a>
-						</li>
-					<li>
-						<a href="." className="Button">Carrito</a>
-						</li>
-				</ul>
-			</nav>
-		</div>
+			<Nav/>
+		</NavbarContainer>
 	);
 }
 
 export default Navbar;
+
+const NavbarContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: #F3E9DD ;
+
+	.Logo {
+		height: 4.65rem;
+		width: 4.65rem;
+	}
+
+	.Title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		font-style: italic;
+		white-space: pre-wrap;
+		margin: 0 0.75rem 0 0.5rem ;
+		align-self: center;
+	}
+`
