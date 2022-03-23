@@ -1,25 +1,24 @@
 import styled from 'styled-components';
 import CartWidget from '../CartWidget/CartWidget';
+import { DarkColor, SecondaryColor, PrimaryColor } from '../../../assets/ColorTheme';
 
-const Nav =(props) => {
+
+const Nav =({links}) => {
+	console.log({links})
 	return (
 		<NavContainer>
 			<ul className="LinkList">
 				<li><a href="." className="Button">Inicio</a></li>
 				<li><a href="." className="Button">Categorias</a>
 					<ul className="Categories">
-						<li className="CategoryItem">
-							<a href="." className="Button">Categoria 1</a>
-						</li>
-						<li className="CategoryItem">
-							<a href="." className="Button">Categoria 2</a>
-						</li>
-						<li className="CategoryItem">
-							<a href="." className="Button">Categoria 3</a>
-						</li>
-						<li className="CategoryItem">
-							<a href="." className="Button">Categoria 4</a>
-						</li>
+						{links.map(({id, tag, link})=>{
+							return( 
+								<li className="CategoryItem">
+									<a key={id} href={tag} className="Button">{link}</a>
+								</li>
+							)
+						})
+						}
 					</ul>
 				</li>
 				<li>
@@ -36,8 +35,7 @@ const Nav =(props) => {
 export default Nav;
 
 const NavContainer = styled.nav`
-
-		margin-top: 1rem;
+	margin-top: 1rem;
 
 	.LinkList {
 		list-style: none;
@@ -101,13 +99,13 @@ const NavContainer = styled.nav`
 		border-radius: 1rem;
 		transition: ease-in-out 150ms;
 		opacity: 1;
-		color: #282c34;
-		background-color: #B7CADB;
+		color: ${DarkColor};
+		background-color: ${SecondaryColor};
 	}
 
 	.Button:hover {
 			transition: ease-in-out 150ms;
-			opacity: 0.7;
+			background-color: ${PrimaryColor};
 	}
 `
 

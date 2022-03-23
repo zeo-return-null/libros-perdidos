@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const ItemListContainer = ({user}) => {
+const ItemListContainer = ({ user }) => {
 
 	return (
 		<ItemList>
-			<WelcomeMessage>Bienvenido {user} a la tienda de Libros Perdidos</WelcomeMessage>
+			<WelcomeMessage>Bienvenido { user } a la tienda de Libros Perdidos</WelcomeMessage>
 			<DescriptionMessage>¡La libreria donde encontrarás aquellos libros que no sabias que buscabas!</DescriptionMessage>
 		</ItemList>
 	)
