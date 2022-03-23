@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const CartWidget = () => {
 	return (
 		<>
-			<CartWidgetContainer>
+			<CartWidgetContainer href='.'>
 				<ShoppingCartIcon fontSize="small"/>
 			</CartWidgetContainer>
 		</>
@@ -13,7 +13,7 @@ const CartWidget = () => {
 }
 export default CartWidget;
 
-const CartWidgetContainer = styled.div`
+const CartWidgetContainer = styled.a`
 	margin: 0 0.90rem 0.75rem 0.10rem;
 	padding: 0.5rem 1rem 0.5rem 1rem;
 	border: none;
