@@ -1,5 +1,4 @@
-export const PrimaryColor = "#666A86";
-export const SecondaryColor = "#95B8D1";
-export const TernaryColor = "#FA9F42";
-export const LightColor = "#E8DDB5";
-export const DarkColor = "#333333";
+export const PrimaryColor = "#F58549";
+export const SecondaryColor = "#478978ff";
+export const DarkColor = "#272d2dff";
+export const LightColor = "#DDE3E3";

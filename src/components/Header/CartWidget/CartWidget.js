@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 
 const CartWidget = () => {
+	const CartQuantity = '';
+	
 	return (
 		<>
 			<CartWidgetContainer  href='.' className="Button">
-				<ShoppingCartIcon fontSize='20px'/>
+				<ShoppingCartIcon className="Icon" fontSize='20px'/>
+				<p className="Quantity">{CartQuantity}</p>
 			</CartWidgetContainer>
 		</>
 	)
@@ -14,5 +17,14 @@ const CartWidget = () => {
 export default CartWidget;
 
 const CartWidgetContainer = styled.a`
+	
+	.Icon{
+		display: inline;
+		position: relative;
+		top:2px;
+	}
 
+	.Quantity {
+		display: inline;
+	}
 `
