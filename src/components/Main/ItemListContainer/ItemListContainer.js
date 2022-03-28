@@ -1,8 +1,14 @@
 import styled from "styled-components";
-import { ItemCount } from '../ItemCount/ItemCount';
+import { ItemCount } from "../ItemCount/ItemCount";
 
 
-const ItemListContainer = ({ user },  { onAdd } ) => {
+const ItemListContainer = ({ user } ) => {
+
+	const onAdd = () => {
+		console.log("Agregar al carrito");
+		// return count > 0 ? console.log("Agregar al carrito") : console.log("No selecciono nada");
+	};
+
 	return (
 		<ItemList>
 			<WelcomeMessage>
@@ -12,7 +18,7 @@ const ItemListContainer = ({ user },  { onAdd } ) => {
 				¡La libreria donde encontrarás aquellos libros que no sabias que
 				buscabas!
 			</DescriptionMessage>
-			<ItemCount initial={1} stock={10} onAdd={ onAdd }/>
+			<ItemCount initial={1} stock={10} onAdd={ onAdd } />
 		</ItemList>
 	);
 };

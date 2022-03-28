@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { SecondaryColor,PrimaryColor,DarkColor } from "../../../assets/ColorTheme";
 
-const ItemCount = ( {initial, stock, onAdd } ) => {
+const ItemCount = ( { initial, stock, onAdd } ) => {
 
 
 	const [count, setCount] = useState(initial);
@@ -16,7 +16,8 @@ const ItemCount = ( {initial, stock, onAdd } ) => {
 	};
 
 	const onAddHandler = () => {
-	onAdd();
+		count > 0? onAdd() : console.log("No selecciono nada");
+		setCount(0);
 	}
 
 	return (
