@@ -4,7 +4,6 @@ import { DarkColor, SecondaryColor, PrimaryColor } from '../../../assets/ColorTh
 
 
 const Nav =({links}) => {
-	console.log({links})
 	return (
 		<NavContainer>
 			<ul className="LinkList">
@@ -13,8 +12,8 @@ const Nav =({links}) => {
 					<ul className="Categories">
 						{links.map(({id, tag, link})=>{
 							return( 
-								<li className="CategoryItem">
-									<a key={id} href={tag} className="Button">{link}</a>
+								<li key={id} className="CategoryItem">
+									<a  href={tag} className="Button">{link}</a>
 								</li>
 							)
 						})
