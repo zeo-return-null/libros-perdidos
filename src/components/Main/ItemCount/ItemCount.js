@@ -34,8 +34,8 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
 
 const AddProductFunctionContainer = styled.div`
 	display: flex;
+	margin: 1rem;
 	flex-direction: column;	
-	
 	justify-content: space-between;
 	align-items: center;
 	`;
