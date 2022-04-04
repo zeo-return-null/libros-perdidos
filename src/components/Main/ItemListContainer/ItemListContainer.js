@@ -1,37 +1,61 @@
 import styled from "styled-components";
-import { ItemCount } from "../ItemCount/ItemCount";
+import { products } from "../../../assets/Products";
+import { useEffect, useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+import ItemList from "../ItemList/ItemList";
+
+const promise = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		resolve(products);
+	},2000);
+});
 
 
 const ItemListContainer = ({ user } ) => {
 
-	const onAdd = () => {
-		console.log("Agregar al carrito");
-		// return count > 0 ? console.log("Agregar al carrito") : console.log("No selecciono nada");
-	};
+	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		promise
+		.then((products) => {setProducts(products)})
+		.catch((error) => {console.log(error)})
+		.finally(() => {setLoading(false)})
+	}, []);
+
 
 	return (
-		<ItemList>
+		<ItemListDiv>
 			<WelcomeMessage>
 				Bienvenido {user} a la tienda de Libros Perdidos
 			</WelcomeMessage>
-			<DescriptionMessage>
-				¡La libreria donde encontrarás aquellos libros que no sabias que
-				buscabas!
-			</DescriptionMessage>
-			<ItemCount initial={1} stock={10} onAdd={ onAdd } />
-		</ItemList>
+			{loading ? ( 
+				<>
+					<DescriptionMessage>
+					¡La libreria donde encontrarás aquellos libros que no sabias que
+					buscabas!
+					</DescriptionMessage>
+					<LoadingContainer> 
+						<ClipLoader loading={loading} size={150} ></ClipLoader>
+						<LoadingMessage>Aguarde un momento por favor</LoadingMessage>
+					</LoadingContainer>
+				</>
+			) : ( 
+				<ItemList products={ products }/>
+				)}
+		</ItemListDiv>
 	);
 };
 
 export default ItemListContainer;
 
-const ItemList = styled.div`
+const ItemListDiv = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-content: center;
 	justify-content: top;
 	margin: 1rem;
-	height: 80vh;
+	height: 80%;
 	padding: 0.5rem;
 `;
 
@@ -41,4 +65,17 @@ const WelcomeMessage = styled.h1`
 
 const DescriptionMessage = styled.p`
 	text-align: center;
+`;
+
+const LoadingContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 3rem;
+`;
+
+const LoadingMessage = styled.p`
+	text-align: center;
+	font-size: 2rem;
 `;
