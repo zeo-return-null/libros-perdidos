@@ -1,10 +1,11 @@
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import ItemListContainer from "./components/Main/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/Main/ItemDetailContainer/ItemDetailContainer";
 
 
 const App = () => {
-	const user = "Juan";
+
 	const links = [
 		{ id: 1, tag: "#", link: "Libros de Ficción" },
 		{ id: 2, tag: "#", link: "Libros de Ciencia" },
@@ -20,9 +21,8 @@ const App = () => {
 		<>
 			<Header links={links} />
 			<Main>
-				<ItemListContainer user={user}>
-					
-				</ItemListContainer>
+				<ItemListContainer />
+				<ItemDetailContainer />
 			</Main>
 		</>
 	);

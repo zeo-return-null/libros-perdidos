@@ -7,11 +7,11 @@ import ItemList from "../ItemList/ItemList";
 const promise = new Promise((resolve, reject) => {
 	setTimeout(() => {
 		resolve(products);
-	},2000);
+	},1000);
 });
 
 
-const ItemListContainer = ({ user } ) => {
+const ItemListContainer = () => {
 
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -26,11 +26,11 @@ const ItemListContainer = ({ user } ) => {
 
 	return (
 		<ItemListDiv>
-			<WelcomeMessage>
-				Bienvenido {user} a la tienda de Libros Perdidos
-			</WelcomeMessage>
 			{loading ? ( 
 				<>
+					<WelcomeMessage>
+						Bienvenido a la tienda de Libros Perdidos
+					</WelcomeMessage>
 					<DescriptionMessage>
 					¡La libreria donde encontrarás aquellos libros que no sabias que
 					buscabas!
@@ -41,8 +41,10 @@ const ItemListContainer = ({ user } ) => {
 					</LoadingContainer>
 				</>
 			) : ( 
+				<>
+				<WelcomeMessage>Nuestros productos</WelcomeMessage>
 				<ItemList products={ products }/>
-				)}
+				</>)}
 		</ItemListDiv>
 	);
 };
