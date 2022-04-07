@@ -6,6 +6,15 @@ Version en vivo [Aqui](https://libros-perdidos.vercel.app/)
 
 Este proyecto fue maquetado con [Create React App](https://github.com/facebook/create-react-app). 
 
+### Librerias utilizadas
+
+- React router dom
+- Material UI 
+- Styled components
+
+## Navegando el Sitio
+
+![](src/assets/Navegacion.gif)
 
 ---
 # Getting Started 
@@ -15,6 +24,13 @@ An ecommerce of books and office supplies.
 Live Version [Here](https://libros-perdidos.vercel.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+
+### Used libraries
+
+- React router dom
+- Material UI 
+- Styled components
+
 
 ---
 ## Available Scripts
