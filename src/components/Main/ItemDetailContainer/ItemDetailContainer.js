@@ -1,27 +1,32 @@
 import styled from "styled-components";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { initialProduct } from "../../../assets/InitialProductDetails";
+import { products } from "../../../assets/Products";
 import { useEffect, useState } from "react";
-
+import { useParams } from "react-router-dom";
 
 const promise = new Promise((resolve, reject) => {
 	setTimeout(() => {
-		resolve(initialProduct);
+		resolve(products);
 	},2000);
 });
 
 
 const ItemDetailContainer = () => {
 
-	const [initialProduct, setDetails] = useState([]);
+	const [product, setProduct] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	const { id }  = useParams();
+
 	useEffect(() => {
-		promise
-		.then((initialProduct) => {setDetails(initialProduct)})
+		promise	
+		.then((products) => {
+			setProduct(products.filter(product => product.id === parseInt(id))[0]);
+		})
 		.catch((error) => {console.log(error)})
 		.finally(() => {setLoading(false)})
-	}, []);
+	}, [id]);
+
 
 
 	return (
@@ -31,7 +36,7 @@ const ItemDetailContainer = () => {
 					Aguarde un momento
 				</DescriptionMessage>
 			): (
-			<ItemDetail initialProduct = {initialProduct} />
+			<ItemDetail product = {product} />
 			)}
 		</ItemContainer>
 	)

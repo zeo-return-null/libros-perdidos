@@ -2,17 +2,15 @@ import styled from "styled-components";
 import logo from "../../assets/img/logo.svg";
 import Nav from "./Nav/Nav";
 import { DarkColor, LightColor } from "../../assets/ColorTheme";
+import { Link } from "react-router-dom";
+
 
 const Header = ({ links }) => {
 	return (
 		<Navbar>
-			<Logo href=".">
-				<img
-					src={logo}
-					className="Logo"
-					alt="logo de libros perdidos"
-				/>
-			</Logo>
+			<Link to="/">
+				<Logo src={logo} className="Logo" alt="logo de libros perdidos"/>
+			</Link>
 			<h3 className="Title">Libros Perdidos</h3>
 			<Nav links={links} />
 		</Navbar>
@@ -21,11 +19,9 @@ const Header = ({ links }) => {
 
 export default Header;
 
-const Logo = styled.a`
-	.Logo {
+const Logo = styled.img`
 		height: 4.65rem;
 		width: 4.65rem;
-	}
 `;
 
 const Navbar = styled.div`

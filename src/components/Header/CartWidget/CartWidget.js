@@ -1,30 +1,19 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
-	const CartQuantity = '';
+	const CartQuantity =" ";
 	
 	return (
-		<>
-			<CartWidgetContainer  href='.' className="Button">
-				<ShoppingCartIcon className="Icon" fontSize='20px'/>
-				<p className="Quantity">{CartQuantity}</p>
-			</CartWidgetContainer>
-		</>
+			<Link to="/cart" className="Button">
+					<ShoppingCartIcon fontSize='20px'/>
+					<Quantity> {CartQuantity}</Quantity>
+			</Link>
 	)
 }
 export default CartWidget;
 
-const CartWidgetContainer = styled.a`
-	
-	.Icon{
+const Quantity = styled.p`
 		display: inline;
-		position: relative;
-		top:2px;
-	}
-
-	.Quantity {
-		display: inline;
-	}
 `

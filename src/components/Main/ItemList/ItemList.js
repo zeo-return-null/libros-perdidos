@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Item } from "../Item/Item";
 
+
 const ItemList = ({ products }) => {
+
 
 	return (
 		<ItemListDiv>

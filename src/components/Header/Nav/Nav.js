@@ -1,36 +1,40 @@
 import styled from "styled-components";
 import CartWidget from "../CartWidget/CartWidget";
 import { DarkColor, SecondaryColor, LightColor } from "../../../assets/ColorTheme";
+import { NavLink } from "react-router-dom";
+
 
 const Nav = ({ links }) => {
 	return (
 		<NavContainer>
 			<ul className="LinkList">
 				<li>
-					<a href="." className="Button">
+					<NavLink to="/" className="Button">
 						Inicio
-					</a>
+					</NavLink>
 				</li>
 				<li>
-					<a href="." className="Button">
+					<NavLink to="/" className="Button">
 						Categorias
-					</a>
+					</NavLink>
 					<ul className="Categories">
-						{links.map(({ id, tag, link }) => {
+						
+						{links.map(({ id, route, name }) => {
 							return (
-								<li key={id} className="CategoryItem">
-									<a href={tag} className="Button">
-										{link}
-									</a>
+								<li className="CategoryItem" key={id}>
+									<NavLink  to={route} className="Button">
+										{name}
+									</NavLink>
 								</li>
 							);
 						})}
+						
 					</ul>
 				</li>
 				<li>
-					<a href="." className="Button">
+					<NavLink to="/login" className="Button">
 						Login
-					</a>
+					</NavLink>
 				</li>
 				<li>
 					<CartWidget />

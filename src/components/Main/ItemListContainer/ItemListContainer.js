@@ -3,6 +3,8 @@ import { products } from "../../../assets/Products";
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+
 
 const promise = new Promise((resolve, reject) => {
 	setTimeout(() => {
@@ -16,13 +18,23 @@ const ItemListContainer = () => {
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+
+	const { category }  = useParams();
+	console.log(category)
+
 	useEffect(() => {
 		promise
-		.then((products) => {setProducts(products)})
-		.catch((error) => {console.log(error)})
-		.finally(() => {setLoading(false)})
-	}, []);
-
+			.then((products) => {
+				if (category) {
+					setProducts(products.filter(product => product.category === category));
+				}
+				else {
+					setProducts(products);
+				}
+			})
+			.catch((error) => {console.log(error)})
+			.finally(() => {setLoading(false)})
+	}, [category]);
 
 	return (
 		<ItemListDiv>

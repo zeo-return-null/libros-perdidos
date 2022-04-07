@@ -2,15 +2,12 @@ import styled from "styled-components";
 import Details from './Details/Details';
 
 
-const ItemDetail = ({ initialProduct }) => {
+const ItemDetail = ({ product }) => {
 
 	
 	return (
-		<ItemDetails>
-			{initialProduct.map((initialDetails) => (
-				<Details key={initialDetails.id} initialDetails={initialDetails}/>
-			))}
-			
+		<ItemDetails>	
+				<Details product={product}/>
 		</ItemDetails>
 	)
 }

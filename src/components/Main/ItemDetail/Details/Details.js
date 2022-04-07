@@ -1,17 +1,26 @@
 import styled from "styled-components";
+import { ItemCount } from "../../ItemCount/ItemCount";
+
+const Details = ({ product }) => {
+
+	const initial = 1;
+
+	const onAdd = () => {
+		console.log(`Agregar al carrito el producto ${product.name} del autor ${product.author}`);
+	};
 
 
-const Details = ( { initialDetails }) => {
 	return (
 		<>
 			<ImageContainer>
-				<Image src={initialDetails.url} alt={initialDetails.name} />
+				<Image src={product.url} alt={product.name} />
 			</ImageContainer>
-			<ItemTitle>{initialDetails.name}</ItemTitle>
-			<ItemBookAuthor>{initialDetails.author}</ItemBookAuthor>
-			<ItemDescription>{initialDetails.description}</ItemDescription>
-			<ItemStock>Stock disponible: {initialDetails.stock} unidades.</ItemStock>
-			<ItemPrice>$ {initialDetails.price}</ItemPrice>
+			<ItemTitle>{product.name}</ItemTitle>
+			<ItemBookAuthor>{product.author}</ItemBookAuthor>
+			<ItemDescription>{product.description}</ItemDescription>
+			<ItemStock>Stock disponible: {product.stock} unidades.</ItemStock>
+			<ItemPrice>$ {product.price}</ItemPrice>
+			<ItemCount initial={initial} stock={product.stock} onAdd={ onAdd } />
 		</>
 	)
 }

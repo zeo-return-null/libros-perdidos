@@ -1,14 +1,8 @@
 import styled from "styled-components";
 import { GreyColor, DarkColor, SecondaryColor } from "../../../assets/ColorTheme";
-import { ItemCount } from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 export const Item = ({ product }) => {
-
-	const initial = 1;
-
-	const onAdd = () => {
-		console.log(`Agregar al carrito el producto ${product.name} del autor ${product.author}`);
-	};
 
 	return (
 	<ItemContainer>
@@ -18,7 +12,7 @@ export const Item = ({ product }) => {
 		<ItemTitle>{product.name}</ItemTitle>
 		<ItemAuthor>{product.author}</ItemAuthor>
 		<ItemDescription>${product.price}</ItemDescription>
-		<ItemCount initial={initial} stock={product.stock} onAdd={ onAdd } />
+		<Link to={`/item/${product.id}`}>Quiero saber mas</Link>
 	</ItemContainer>
 	);
 };
@@ -75,3 +69,19 @@ const ItemAuthor = styled.h4`
 const ItemDescription = styled.p`
 	text-align: center;
 `;
+
+// const ItemDetailsButton = styled.button`
+// 	width: 8rem;
+// 	height: 2rem;
+// 	padding:  0 0.5rem 0 0.5rem;
+// 	margin: 1rem;
+// 	border: 1px solid ${DarkColor};
+// 	border-radius: 0.3rem;
+// 	background-color: ${PrimaryColor};
+// 	transition: ease-in-out 150ms;
+
+// 	:hover {
+// 		background-color: ${SecondaryColor};
+// 		transition: ease-in-out 150ms;
+// 	}
+// `;
