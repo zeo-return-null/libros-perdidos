@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { GreyColor, DarkColor, SecondaryColor } from "../../../assets/ColorTheme";
 import { Link } from "react-router-dom";
 
+
 export const Item = ({ product }) => {
 
 	return (
@@ -12,7 +13,7 @@ export const Item = ({ product }) => {
 		<ItemTitle>{product.name}</ItemTitle>
 		<ItemAuthor>{product.author}</ItemAuthor>
 		<ItemDescription>${product.price}</ItemDescription>
-		<Link to={`/item/${product.id}`}>Quiero saber mas</Link>
+		<Link to={`/item/${product.id}`} style={ItemDetailsButton}>Quiero saber más</Link>
 	</ItemContainer>
 	);
 };
@@ -21,6 +22,7 @@ const ItemContainer = styled.div`
     width: 30%;
 	height: 42%;
 	margin: 1rem;
+	padding: 1rem;
 	border-radius: 1rem;
     flex-direction: column;
     justify-content: center;
@@ -70,18 +72,21 @@ const ItemDescription = styled.p`
 	text-align: center;
 `;
 
-// const ItemDetailsButton = styled.button`
-// 	width: 8rem;
-// 	height: 2rem;
-// 	padding:  0 0.5rem 0 0.5rem;
-// 	margin: 1rem;
-// 	border: 1px solid ${DarkColor};
-// 	border-radius: 0.3rem;
-// 	background-color: ${PrimaryColor};
-// 	transition: ease-in-out 150ms;
+const ItemDetailsButton = {
+	textDecoration: "none",
+	color: "black",
+	width: "8rem",
+	height: "2rem",
+	padding:  "0.25rem 0.5rem 0.25rem 0.5rem",
+	marginBottom: "1rem",
+	border: "1px solid #272d2dff",
+	borderRadius: "0.3rem",
+	backgroundColor: "#F58549",
+	transition: "ease-in-out 150ms"
 
-// 	:hover {
-// 		background-color: ${SecondaryColor};
-// 		transition: ease-in-out 150ms;
-// 	}
-// `;
+	// :hover {
+	// 	background-color: ${SecondaryColor};
+	// 	transition: ease-in-out 150ms;
+	// }
+}
+;

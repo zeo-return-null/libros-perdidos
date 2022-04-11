@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { useState } from "react";
 import { SecondaryColor,PrimaryColor,DarkColor } from "../../../assets/ColorTheme";
 
-const ItemCount = ( { initial, stock, onAdd } ) => {
+const ItemCount = ( { initial, product, onAdd } ) => {
 
 
 	const [count, setCount] = useState(initial);
 
 	const SumClick = () => {
-		count < stock ? setCount(count + 1) : setCount(count);
+		count < product.stock ? setCount(count + 1) : setCount(count);
 	};
 
 	const SubClick = () => {
@@ -16,8 +16,7 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
 	};
 
 	const onAddHandler = () => {
-		count > 0? onAdd() : console.log("No selecciono nada");
-		setCount(0);
+		onAdd(count, product.id)
 	}
 
 	return (

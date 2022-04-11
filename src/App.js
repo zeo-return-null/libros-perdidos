@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import ItemListContainer from "./components/Main/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/Main/ItemDetailContainer/ItemDetailContainer";
+import Cart from "./components/Main/Cart/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -22,7 +23,7 @@ const App = () => {
 						<Route path="/" element={<ItemListContainer />} />
 						<Route path="/categorias/:category" element={<ItemListContainer />} />
 						<Route path="/item/:id" element={<ItemDetailContainer />} />
-						<Route path="/carrito" />
+						<Route path="/carrito" element={<Cart />} />
 					</Routes>
 				</Main>
 			</>

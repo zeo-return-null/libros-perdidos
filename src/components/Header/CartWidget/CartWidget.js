@@ -6,7 +6,7 @@ const CartWidget = () => {
 	const CartQuantity =" ";
 	
 	return (
-			<Link to="/cart" className="Button">
+			<Link to="/carrito" className="Button">
 					<ShoppingCartIcon fontSize='20px'/>
 					<Quantity> {CartQuantity}</Quantity>
 			</Link>
