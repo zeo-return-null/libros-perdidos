@@ -16,7 +16,7 @@ const ItemDetail = ({ product }) => {
 		let CartItems = [count, id]
 		setClicked(true)
 		console.log(`Agregar al carrito el producto ${product.name} x ${count} cantidad, del autor ${product.author}`);
-		console.log(...CartItems);
+		console.log(CartItems);
 	};
 
 
