@@ -16,7 +16,7 @@ const ItemCount = ( { initial, product, onAdd } ) => {
 	};
 
 	const onAddHandler = () => {
-		onAdd(count, product.id)
+		onAdd(count)
 	}
 
 	return (

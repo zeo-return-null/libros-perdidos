@@ -3,6 +3,7 @@ import Main from "./components/Main/Main";
 import ItemListContainer from "./components/Main/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/Main/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./components/Main/Cart/Cart";
+import CustomProvider from "./components/Main/Cart/CartContext/CartContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -16,7 +17,7 @@ const App = () => {
 
 	return (
 		<BrowserRouter>
-			<>
+			<CustomProvider>
 				<Header links={links} />
 				<Main>
 					<Routes>
@@ -26,7 +27,7 @@ const App = () => {
 						<Route path="/carrito" element={<Cart />} />
 					</Routes>
 				</Main>
-			</>
+			</CustomProvider>
 		</BrowserRouter>
 	);
 };

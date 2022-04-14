@@ -1,22 +1,25 @@
 import styled from "styled-components";
 import { ItemCount } from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { PrimaryColor, SecondaryColor, DarkColor } from "../../../assets/ColorTheme";
+import { CartContext } from "../Cart/CartContext/CartContext";
 
-
+// src/components/Main/Cart/CartContext/CartContext.js
 const ItemDetail = ({ product }) => {
 
-
-	const initial = 1;
-
 	const [clicked, setClicked] = useState(false)
-	const onAdd = (count, id) => {
 
-		let CartItems = [count, id]
+	const { addToCart } = useContext(CartContext);
+	
+	const onAdd = (count) => {
+
+		addToCart(product, count);
+		console.log(`Se agregaron ${count} productos al carrito`);
+		// let CartItems = [count, id]
 		setClicked(true)
-		console.log(`Agregar al carrito el producto ${product.name} x ${count} cantidad, del autor ${product.author}`);
-		console.log(CartItems);
+		// console.log(`Agregar al carrito el producto ${product.name} x ${count} cantidad, del autor ${product.author}`);
+		// console.log(CartItems);
 	};
 
 
@@ -30,8 +33,7 @@ const ItemDetail = ({ product }) => {
 			<ItemDescription>{product.description}</ItemDescription>
 			<ItemStock>Stock disponible: {product.stock} unidades.</ItemStock>
 			<ItemPrice>$ {product.price}</ItemPrice>
-			{clicked ? <Link to="/carrito" style={BuyDetailsContainer}><BuyDetailsButton>Terminar compra</BuyDetailsButton></Link> : <ItemCount initial={initial} product={product} onAdd={onAdd} />}
-			
+			{clicked ? <Link to="/carrito" style={BuyDetailsContainer}><BuyDetailsButton>Terminar compra</BuyDetailsButton></Link> : <ItemCount initial={1} product={product} onAdd={onAdd} />}
 		</ItemDetails>
 	)
 }
