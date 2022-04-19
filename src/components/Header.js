@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import logo from "../../assets/img/logo.svg";
-import Nav from "./Nav/Nav";
-import { DarkColor, LightColor } from "../../assets/ColorTheme";
+import logo from "../assets/img/logo.svg";
+import Nav from "./Nav";
+import { DarkColor, LightColor } from "../assets/ColorTheme";
 import { Link } from "react-router-dom";
 
 

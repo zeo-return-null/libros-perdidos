@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GreyColor, DarkColor, SecondaryColor, PrimaryColor } from "../../../assets/ColorTheme";
+import { GreyColor, DarkColor, SecondaryColor, PrimaryColor } from "../assets/ColorTheme";
 import { Link } from "react-router-dom";
 
 

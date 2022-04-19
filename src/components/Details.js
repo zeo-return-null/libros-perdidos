@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { ItemCount } from "../../ItemCount/ItemCount";
+import { ItemCount } from "./ItemCount";
 
 const Details = ({ product }) => {
 
 	const initial = 1;
 
 	const onAdd = () => {
-		console.log(`Agregar al carrito el producto ${product.name} del autor ${product.author}`);
 	};
 
 

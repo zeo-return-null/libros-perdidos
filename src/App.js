@@ -1,9 +1,9 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import ItemListContainer from "./components/Main/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/Main/ItemDetailContainer/ItemDetailContainer";
-import Cart from "./components/Main/Cart/Cart";
-import CustomProvider from "./components/Main/Cart/CartContext/CartContext";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import ItemListContainer from "./containers/ItemListContainer";
+import ItemDetailContainer from "./containers/ItemDetailContainer";
+import Cart from "./components/Cart";
+import CustomProvider from "./components/CartContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
-import { CartContext } from "./CartContext/CartContext";
-import { PrimaryColor, DarkColor, SecondaryColor } from "../../../assets/ColorTheme";
+import { CartContext } from "./CartContext";
+import { PrimaryColor, DarkColor, SecondaryColor } from "../assets/ColorTheme";
 import { Link } from "react-router-dom";
 
 

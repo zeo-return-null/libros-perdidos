@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Item } from "../Item/Item";
+import { Item } from "./Item";
 
 
 const ItemList = ({ products }) => {

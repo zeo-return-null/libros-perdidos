@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CartWidget from "../CartWidget/CartWidget";
-import { DarkColor, SecondaryColor, LightColor } from "../../../assets/ColorTheme";
+import CartWidget from "./CartWidget";
+import { DarkColor, SecondaryColor, LightColor } from "../assets/ColorTheme";
 import { NavLink } from "react-router-dom";
 
 

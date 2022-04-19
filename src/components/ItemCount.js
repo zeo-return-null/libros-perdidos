@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { SecondaryColor,PrimaryColor,DarkColor } from "../../../assets/ColorTheme";
+import { SecondaryColor,PrimaryColor,DarkColor } from "../assets/ColorTheme";
 
 const ItemCount = ( { initial, product, onAdd } ) => {
 
@@ -79,7 +79,7 @@ const AddtoCartButton = styled.button`
 	font-size: 1rem;
 	height: 2.4rem;
 	margin: 1rem;
-	padding: 0.5rem;
+	padding: 0.5rem ;
 	border: 1px solid ${DarkColor};
 	border-radius: 0.3rem;
 	background-color: ${PrimaryColor};

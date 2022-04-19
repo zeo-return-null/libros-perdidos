@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ItemDetail from "../ItemDetail/ItemDetail";
-import { products } from "../../../assets/Products";
+import ItemDetail from "../components/ItemDetail";
+import { products } from "../assets/Products";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { products } from "../../../assets/Products";
+import { products } from "../assets/Products";
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "../components/ItemList";
 import { useParams } from "react-router-dom";
 
 

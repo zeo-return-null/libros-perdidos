@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { ItemCount } from "../ItemCount/ItemCount";
+import { ItemCount } from "./ItemCount";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { PrimaryColor, SecondaryColor, DarkColor } from "../../../assets/ColorTheme";
-import { CartContext } from "../Cart/CartContext/CartContext";
+import { PrimaryColor, SecondaryColor, DarkColor } from "../assets/ColorTheme";
+import { CartContext } from "./CartContext";
 
-// src/components/Main/Cart/CartContext/CartContext.js
+
 const ItemDetail = ({ product }) => {
 
 	const [clicked, setClicked] = useState(false)
@@ -15,11 +15,7 @@ const ItemDetail = ({ product }) => {
 	const onAdd = (count) => {
 
 		addToCart(product, count);
-		console.log(`Se agregaron ${count} productos al carrito`);
-		// let CartItems = [count, id]
 		setClicked(true)
-		// console.log(`Agregar al carrito el producto ${product.name} x ${count} cantidad, del autor ${product.author}`);
-		// console.log(CartItems);
 	};
 
 
@@ -98,7 +94,7 @@ const BuyDetailsButton = styled(Link)`
 	width: auto;
 	height: 2.4rem;
 	margin: 1rem;
-	padding:  0.5rem;
+	padding:  0.5rem 0.5rem 0 0.5rem;
 	border: 1px solid ${DarkColor};
 	border-radius: 0.3rem;
 	background-color: ${PrimaryColor};
