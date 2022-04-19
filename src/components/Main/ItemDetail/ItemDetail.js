@@ -33,7 +33,7 @@ const ItemDetail = ({ product }) => {
 			<ItemDescription>{product.description}</ItemDescription>
 			<ItemStock>Stock disponible: {product.stock} unidades.</ItemStock>
 			<ItemPrice>$ {product.price}</ItemPrice>
-			{clicked ? <Link to="/carrito" style={BuyDetailsContainer}><BuyDetailsButton>Terminar compra</BuyDetailsButton></Link> : <ItemCount initial={1} product={product} onAdd={onAdd} />}
+			{clicked ? <BuyDetailsButton to="/carrito">Terminar compra</BuyDetailsButton> : <ItemCount initial={1} product={product} onAdd={onAdd} />}
 		</ItemDetails>
 	)
 }
@@ -89,19 +89,16 @@ const ItemStock = styled.p`
 	font-size: 1.2rem;
 `;
 
-const BuyDetailsContainer = {
-	display: "flex",
-	alignSelf: "center",
-	justifySelf: "center",
-	margin: "1rem",
-}
-
-const BuyDetailsButton = styled.button`
+const BuyDetailsButton = styled(Link)`
 	align-self: center;
-	justify-self: center;
-	width: 8rem;
-	height: 3rem;
-	padding:  0 0.5rem 0 0.5rem;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1rem;
+	color: black;
+	width: auto;
+	height: 2.4rem;
+	margin: 1rem;
+	padding:  0.5rem;
 	border: 1px solid ${DarkColor};
 	border-radius: 0.3rem;
 	background-color: ${PrimaryColor};

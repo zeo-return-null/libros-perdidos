@@ -2,19 +2,23 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { CartContext } from "./CartContext/CartContext";
 import { PrimaryColor, DarkColor, SecondaryColor } from "../../../assets/ColorTheme";
+import { Link } from "react-router-dom";
+
 
 const Cart = () => {
 	
-	const { cart, cartTotal, ClearCart, removeFromCart } =useContext(CartContext);
+	const { cart, cartTotal, ClearCart, removeFromCart } = useContext(CartContext);
 
 	const remove = (e) => { removeFromCart(e.target.id) }
 
 	const clear = () => { ClearCart() }
 
-
 	return (
 		<CartContainer>
-			<CartTitle>Su carrito posee {cartTotal.qty} productos con un valor total de $ {cartTotal.price}</CartTitle>
+			<CartTitle>
+			{cart.length > 0 ? `Su carrito posee ${cartTotal.qty} productos con un valor total de $ ${cartTotal.price}` 
+			: "Su carrito esta vacio"}
+			</CartTitle>
 			<CartItemContainer>
 				{cart.map((product) => (
     				<CartItem key={product.id}>
@@ -22,7 +26,11 @@ const Cart = () => {
 						<CartItemButton id={product.id} onClick={remove}>Eliminar</CartItemButton>
 					</CartItem>
 				))}
-				<CartClearButton onClick={clear} >Limpiar carrito</CartClearButton>
+				{cart.length > 0 ? <CartClearButton onClick={clear}>Vaciar carrito</CartClearButton> 
+				: <>
+					<BackToProductsButton to="/" >Volver a los productos</BackToProductsButton>
+				</> 
+				}
 			</CartItemContainer>
 		</CartContainer>
 	)
@@ -61,8 +69,6 @@ const PriceStyle = styled.span`
 	text-align: end;
 	`
 
-
-
 	const CartItemTitleAndQty = styled.h3`
 	text-align: center;
 	font-size: 1.5rem;
@@ -70,10 +76,6 @@ const PriceStyle = styled.span`
 	margin: 0;
 	white-space: wrap;
 `;
-
-
-
-
 
 const CartClearButton = styled.button`
 	font-size: 1rem;
@@ -92,7 +94,6 @@ const CartClearButton = styled.button`
 	}
 `;
 
-
 const CartItemButton = styled.button`
 font-size: 1rem;
 width: auto;
@@ -110,6 +111,25 @@ transition: ease-in-out 150ms;
 }
 `;
 
+const BackToProductsButton = styled(Link)`
+font-size: 1rem;
+text-decoration: none;
+text-align: center;
+color: black;
+width: auto;
+height: 2rem;
+margin: 1rem 0 1rem 0;
+padding: 0.5rem 0.5rem 0 0.5rem;
+border: 1px solid ${DarkColor};
+border-radius: 0.3rem;
+background-color: ${PrimaryColor};
+transition: ease-in-out 150ms;
+
+:hover {
+	background-color: ${SecondaryColor};
+	transition: ease-in-out 150ms;
+}
+`;
 
 
 export default Cart;

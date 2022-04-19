@@ -74,9 +74,12 @@ const ItemCountButton = styled.button`
 `;
 
 const AddtoCartButton = styled.button`
-	width: 8rem;
-	height: 3rem;
-	padding:  0 0.5rem 0 0.5rem;
+	width: auto;
+	text-align: center;
+	font-size: 1rem;
+	height: 2.4rem;
+	margin: 1rem;
+	padding: 0.5rem;
 	border: 1px solid ${DarkColor};
 	border-radius: 0.3rem;
 	background-color: ${PrimaryColor};
