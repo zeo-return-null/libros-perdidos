@@ -20,7 +20,6 @@ const ItemListContainer = () => {
 
 
 	const { category }  = useParams();
-	console.log(category)
 
 	useEffect(() => {
 		promise

@@ -59,9 +59,10 @@ const NavContainer = styled.nav`
 	}
 
 	.LinkList a {
-		display: block;
+		display: flex;
 		text-decoration: none;
 		padding: 0.6rem;
+		flex-wrap: nowrap;
 	}
 
 	.LinkList li {
