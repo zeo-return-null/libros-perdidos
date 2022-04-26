@@ -1,61 +1,76 @@
 import styled from "styled-components";
-import { products } from "../assets/Products";
 import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import ItemList from "../components/ItemList";
 import { useParams } from "react-router-dom";
-
-
-const promise = new Promise((resolve, reject) => {
-	setTimeout(() => {
-		resolve(products);
-	},1000);
-});
-
+import { db } from "../firebase";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
-
+	const [welcomeMessage, setWelcomeMessage] = useState();
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
-
-
-	const { category }  = useParams();
+	const { category } = useParams();
 
 	useEffect(() => {
-		promise
-			.then((products) => {
-				if (category) {
-					setProducts(products.filter(product => product.category === category));
-				}
-				else {
-					setProducts(products);
-				}
+		const productCollection = collection(db, "libros");
+		let request;
+		if (category) {
+			request = query(
+				productCollection,
+				where("category", "==", category)
+			);
+			setWelcomeMessage(
+				category.charAt(0).toUpperCase() + category.slice(1)
+			);
+		} else {
+			request = productCollection;
+			setWelcomeMessage("Bienvenido a la tienda de Libros Perdidos");
+		}
+
+		getDocs(request)
+			.then((result) => {
+				const docs = result.docs;
+				const products = docs.map((products) => {
+					const id = products.id;
+					const product = {
+						id,
+						...products.data(),
+					};
+					return product;
+				});
+				setProducts(products);
+				setLoading(false);
 			})
-			.catch((error) => {console.log(error)})
-			.finally(() => {setLoading(false)})
+			.catch(() => {
+				console.log(
+					"¡Oh no! Algo malió sal, quiero decir, ¡algo salio mal!"
+				);
+			});
 	}, [category]);
 
 	return (
 		<ItemListDiv>
-			{loading ? ( 
+			{loading ? (
 				<>
-					<WelcomeMessage>
-						Bienvenido a la tienda de Libros Perdidos
-					</WelcomeMessage>
+					<WelcomeMessage>{welcomeMessage}</WelcomeMessage>
 					<DescriptionMessage>
-					¡La libreria donde encontrarás aquellos libros que no sabias que
-					buscabas!
+						¡La libreria donde encontrarás aquellos libros que no
+						sabias que buscabas!
 					</DescriptionMessage>
-					<LoadingContainer> 
-						<ClipLoader loading={loading} size={150} ></ClipLoader>
-						<LoadingMessage>Aguarde un momento por favor</LoadingMessage>
+					<LoadingContainer>
+						<ClipLoader loading={loading} size={150}></ClipLoader>
+						<LoadingMessage>
+							Aguarde un momento por favor
+						</LoadingMessage>
 					</LoadingContainer>
 				</>
-			) : ( 
+			) : (
 				<>
-				<WelcomeMessage>Nuestros productos</WelcomeMessage>
-				<ItemList products={ products }/>
-				</>)}
+					<WelcomeMessage>{welcomeMessage}</WelcomeMessage>
+					<ItemList products={products} />
+				</>
+			)}
 		</ItemListDiv>
 	);
 };

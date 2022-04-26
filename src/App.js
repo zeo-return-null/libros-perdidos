@@ -10,9 +10,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const App = () => {
 
 	const links = [
-		{ id: 1, route: "categorias/ficcion", name: "Libros de Ficción" },
+		{ id: 1, route: "categorias/ficción", name: "Libros de Ciencia Ficción" },
 		{ id: 2, route: "categorias/terror", name: "Libros de Terror" },
-		{ id: 3, route: "categorias/articulos-libreria", name: "Productos de Libreria" },
+		{ id: 3, route: "categorias/fantasia", name: "Libros de Fantasia" },
 	];
 
 	return (

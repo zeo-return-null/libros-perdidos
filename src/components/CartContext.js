@@ -31,7 +31,7 @@ const CustomProvider = ({ children }) => {
 	}
 
 	const removeFromCart = (id) => {
-		const newCart = cart.filter(product => product.id !== Number(id));
+		const newCart = cart.filter(product => product.id !== id);
 		setCart(newCart);
 	}
 
