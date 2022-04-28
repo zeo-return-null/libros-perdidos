@@ -10,7 +10,7 @@ const CartWidget = () => {
 	return (
 		<CartWidgetButton to="/carrito" className="Button">
 			<CartIcon fontSize="20px" />
-			{cartTotal.qty > 0 ? <Quantity>{cartTotal.qty}</Quantity> : null}
+			{cartTotal.qty > 0 && <Quantity>{cartTotal.qty}</Quantity> }
 		</CartWidgetButton>
 	);
 };

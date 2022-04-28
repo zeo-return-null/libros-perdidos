@@ -43,11 +43,9 @@ const Cart = () => {
 						Vaciar carrito
 					</CartClearButton>
 				) : (
-					<>
 						<BackToProductsButton to="/">
 							Volver a los productos
 						</BackToProductsButton>
-					</>
 				)}
 			</CartItemContainer>
 		</CartContainer>

@@ -29,7 +29,13 @@ const ItemDetail = ({ product }) => {
 			<ItemDescription>{product.description}</ItemDescription>
 			<ItemStock>Stock disponible: {product.stock} unidades.</ItemStock>
 			<ItemPrice>$ {product.price}</ItemPrice>
-			{clicked ? <BuyDetailsButton to="/carrito">Terminar compra</BuyDetailsButton> : <ItemCount initial={1} product={product} onAdd={onAdd} />}
+			{clicked 
+			? <ButtonsContainer>
+				<BuyDetailsButton to="/carrito">Ir al carrito</BuyDetailsButton>
+				<ContinueShoppingButton  to="/">Continuar comprando</ContinueShoppingButton>
+			</ButtonsContainer>
+			: <ItemCount initial={1} product={product} onAdd={onAdd} 
+			/>}
 		</ItemDetails>
 	)
 }
@@ -85,7 +91,14 @@ const ItemStock = styled.p`
 	font-size: 1.2rem;
 `;
 
-const BuyDetailsButton = styled(Link)`
+const ButtonsContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+`;
+
+const ButtonStyle = styled(Link)`
 	align-self: center;
 	text-decoration: none;
 	text-align: center;
@@ -105,6 +118,13 @@ const BuyDetailsButton = styled(Link)`
 		transition: ease-in-out 150ms;
 	}
 `;
+
+const BuyDetailsButton = styled(ButtonStyle)`
+`;
+
+const ContinueShoppingButton = styled(ButtonStyle)`
+`;
+
 
 export default ItemDetail;
 
