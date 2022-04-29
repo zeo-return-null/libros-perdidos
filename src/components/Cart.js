@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { PrimaryColor, DarkColor, SecondaryColor } from "../assets/ColorTheme";
 import { Link } from "react-router-dom";
+import  CartForm  from "./CartForm";
+
 
 const Cart = () => {
 	const { cart, cartTotal, ClearCart, removeFromCart } =
@@ -39,9 +41,16 @@ const Cart = () => {
 					</CartItem>
 				))}
 				{cart.length > 0 ? (
-					<CartClearButton onClick={clear}>
-						Vaciar carrito
-					</CartClearButton>
+					<>
+						<CartForm></CartForm>
+						<ButtonContainer>
+							<CartClearButton onClick={clear}>
+								Vaciar carrito
+							</CartClearButton>
+							<FinishButton>Terminar compra</FinishButton>
+
+						</ButtonContainer>
+					</>
 				) : (
 						<BackToProductsButton to="/">
 							Volver a los productos
@@ -98,7 +107,7 @@ const CartClearButton = styled.button`
 	font-size: 1rem;
 	width: auto;
 	height: 2.4rem;
-	margin: 0 0 1rem 0;
+	margin: 1rem;
 	padding: 0 0.5rem 0 0.5rem;
 	border: 1px solid ${DarkColor};
 	border-radius: 0.3rem;
@@ -115,7 +124,7 @@ const CartItemButton = styled.button`
 	font-size: 1rem;
 	width: auto;
 	height: 2.4rem;
-	margin: 0 0 1rem 0;
+	margin: 1rem;
 	padding: 0 0.5rem 0 0.5rem;
 	border: 1px solid ${DarkColor};
 	border-radius: 0.3rem;
@@ -147,5 +156,28 @@ const BackToProductsButton = styled(Link)`
 		transition: ease-in-out 150ms;
 	}
 `;
+
+const FinishButton = styled.button`
+	font-size: 1rem;
+	width: auto;
+	height: 2.4rem;
+	margin: 1rem ;
+	padding: 0 0.5rem 0 0.5rem;
+	border: 1px solid ${DarkColor};
+	border-radius: 0.3rem;
+	background-color: ${PrimaryColor};
+	transition: ease-in-out 150ms;
+
+	:hover {
+		background-color: ${SecondaryColor};
+		transition: ease-in-out 150ms;
+	}
+`;
+
+const ButtonContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	`
+
 
 export default Cart;
