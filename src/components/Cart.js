@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import { PrimaryColor, DarkColor, SecondaryColor } from "../assets/ColorTheme";
 import { Link } from "react-router-dom";
-import  CartForm  from "./CartForm";
+import  LoginForm  from "./LoginForm";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import { DialogContentText } from "@mui/material";
+import { Button } from "bootstrap";
 
 
 const Cart = () => {
-	const { cart, cartTotal, ClearCart, removeFromCart } =
-		useContext(CartContext);
+	const { cart, cartTotal, ClearCart, removeFromCart, buyerInfo, endPurchase, bundleBuyID  } = useContext(CartContext);
 
 	const remove = (e) => {
 		removeFromCart(e.target.id);
@@ -17,6 +21,25 @@ const Cart = () => {
 	const clear = () => {
 		ClearCart();
 	};
+
+	const endPurchaseHandler = () => {
+		endPurchase();
+	};
+
+	const closeHandler = () => {
+		setOpen(false);
+		clear();
+	}
+
+	const [open, setOpen] = useState(false);
+
+
+	useEffect(() => {
+		if (bundleBuyID) {
+			setOpen(true)
+		}
+	}, [bundleBuyID]);
+
 
 	return (
 		<CartContainer>
@@ -41,21 +64,37 @@ const Cart = () => {
 					</CartItem>
 				))}
 				{cart.length > 0 ? (
-					<>
-						<CartForm></CartForm>
-						<ButtonContainer>
-							<CartClearButton onClick={clear}>
-								Vaciar carrito
-							</CartClearButton>
-							<FinishButton>Terminar compra</FinishButton>
-
-						</ButtonContainer>
-					</>
+					<ButtonContainer>
+						<CartClearButton onClick={clear}>
+							Vaciar carrito
+						</CartClearButton>
+						{!buyerInfo
+						?  (
+							<LoginForm />
+							) 
+						: (
+							<EndPurchaseButton onClick={endPurchaseHandler}>Finalizar su compra</EndPurchaseButton>
+							)}
+					</ButtonContainer>
 				) : (
 						<BackToProductsButton to="/">
 							Volver a los productos
 						</BackToProductsButton>
 				)}
+
+				<Dialog
+					open={open}
+					onClose={closeHandler}
+				>
+					<DialogContent>
+						<DialogContentText id="dialog-description">
+							La compra {bundleBuyID} ha sido exitosa.
+						</DialogContentText>
+					</DialogContent>
+					<DialogActions>
+						<Button onClick={closeHandler}>Aceptar</Button>
+					</DialogActions>
+				</Dialog>
 			</CartItemContainer>
 		</CartContainer>
 	);
@@ -105,7 +144,8 @@ const CartItemTitleAndQty = styled.h3`
 
 const CartClearButton = styled.button`
 	font-size: 1rem;
-	width: auto;
+	align-self:center;
+	width: 10rem;
 	height: 2.4rem;
 	margin: 1rem;
 	padding: 0 0.5rem 0 0.5rem;
@@ -157,7 +197,7 @@ const BackToProductsButton = styled(Link)`
 	}
 `;
 
-const FinishButton = styled.button`
+const EndPurchaseButton = styled.button`
 	font-size: 1rem;
 	width: auto;
 	height: 2.4rem;
@@ -174,9 +214,10 @@ const FinishButton = styled.button`
 	}
 `;
 
+
 const ButtonContainer = styled.div`
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	`
 
 

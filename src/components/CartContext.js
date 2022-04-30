@@ -1,14 +1,24 @@
+import { addDoc, serverTimestamp, collection, updateDoc, doc, getDoc } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
+import { db } from "../firebase";
 
-export const CartContext = createContext();
+export const CartContext = createContext([]);
+
+
 const { Provider } = CartContext;
 
 
 const CustomProvider = ({ children }) => {
+	
 	const [cart, setCart] = useState([]);
 	const [cartTotal, setCartTotal] = useState(0);
+	const [buyer, setBuyer] = useState("");
+	const [buyerInfo, setBuyerInfo] = useState(false);
+	const [bundleBuyID, setBundleBuyID] = useState("")
+
 
 	useEffect(() => { getProductsQty()}, [cart])
+
 
 	const addToCart = (product, qty) => {
 		const newProduct = {
@@ -37,6 +47,7 @@ const CustomProvider = ({ children }) => {
 
 	const ClearCart = () => {
 		setCart([]);
+		setBundleBuyID("");
 	}
 
 	const getProductsQty = () => {
@@ -50,6 +61,39 @@ const CustomProvider = ({ children }) => {
 		return cartTotal;
 	}
 
+	const endPurchase = () => {
+		if (buyerInfo) {
+			const sellCollection = collection(db, "sell history");
+			addDoc(sellCollection, {buyer, product: cart, price: cartTotal.price, date:serverTimestamp()})
+			.then (result => {
+				setBundleBuyID(result.id)
+				stockUpdate()
+			})
+		}
+	}
+
+	const stockUpdate = () => {
+		cart.forEach( product => {
+			const orderDoc = doc(db, "libros", product.id) 
+			getDoc(orderDoc).then((snapshot) => {
+				let searchProd = {id:snapshot.id, ...snapshot.data()}
+				let updatedStock = searchProd.stock - product.qty;
+				updateDoc(orderDoc,{stock:updatedStock})
+			})
+		})
+	}
+
+	const buyerData = ( values ) => {
+		setBuyer({
+			name: values.name,
+			email:values.mail,
+			direction: values.direction,
+			phone: values.phone,
+		})
+		setBuyerInfo(true)
+		if (window.location.pathname === "/login"){window.history.back()}
+	}
+
 	const ContextValue = {
 		cart,
 		cartTotal,
@@ -57,6 +101,11 @@ const CustomProvider = ({ children }) => {
 		removeFromCart,
 		ClearCart,
 		IsInCart,
+		endPurchase,
+		stockUpdate,
+		buyerData,
+		buyerInfo,
+		bundleBuyID
 	}
 
 	return (
