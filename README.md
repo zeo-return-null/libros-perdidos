@@ -17,7 +17,7 @@ Este proyecto fue maquetado con [Create React App](https://github.com/facebook/c
 
 - Clonar el repositorio.
 - Utilizar `npm install` en el directorio raiz.
-- Luego utilizar `npm start`.
+- Luego `npm start`.
 
 ### Librerias utilizadas
 
@@ -48,5 +48,5 @@ En caso de haber seleccionado productos, permite rellenar un formulario para obt
 
 # Creditos
 
-Este trabajo fue desarrollado por @zeo-return-null durante el curso de React JS dictado por @alejandromoises02, profesor de Coderhouse.
+Este trabajo fue desarrollado por [@zeo-return-null](https://github.com/zeo-return-null) durante el curso de React JS dictado por [@alejandromoises02](https://github.com/alejandromoises02), profesor de Coderhouse.
 
