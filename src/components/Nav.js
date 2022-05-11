@@ -32,11 +32,6 @@ const Nav = ({ links }) => {
 					</ul>
 				</li>
 				<li>
-					<NavLink to="/login" className="Button">
-						Login
-					</NavLink>
-				</li>
-				<li>
 					<CartWidget />
 				</li>
 			</ul>
@@ -48,6 +43,7 @@ export default Nav;
 
 const NavContainer = styled.nav`
 	margin-top: 1rem;
+	transform: translateX(-30%);
 
 	.LinkList {
 		list-style: none;

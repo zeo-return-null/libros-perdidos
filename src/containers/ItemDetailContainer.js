@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
 				setLoading(false);
 			})
 			.catch(() => {
-				console.log("Oh no! Algo malió sal, quiero decir, ¡algo salio mal!");
+				console.error("Oh no! Algo malió sal, quiero decir, ¡algo salio mal!");
 			});
 	}, [id]);
 

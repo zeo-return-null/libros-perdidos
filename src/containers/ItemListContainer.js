@@ -43,7 +43,7 @@ const ItemListContainer = () => {
 				setLoading(false);
 			})
 			.catch(() => {
-				console.log(
+				console.error(
 					"¡Oh no! Algo malió sal, quiero decir, ¡algo salio mal!"
 				);
 			});

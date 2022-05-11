@@ -20,8 +20,9 @@ const Header = ({ links }) => {
 export default Header;
 
 const Logo = styled.img`
-		height: 4.65rem;
-		width: 4.65rem;
+		height: 4.5rem;
+		width: 4.5rem;
+		padding: 0.5rem;
 `;
 
 const Navbar = styled.div`
@@ -39,5 +40,6 @@ const Navbar = styled.div`
 		margin: 0 0.75rem 0 0.5rem;
 		align-self: center;
 		color: ${DarkColor};
+		transform: translateX(40%);
 	}
 `;

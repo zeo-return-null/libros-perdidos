@@ -20,16 +20,16 @@ export const Item = ({ product }) => {
 
 const ItemContainer = styled.div`
     width: 30%;
-	height: 42%;
-	margin: 1rem;
-	padding: 1rem;
+	height: auto;
+	margin: 0.5rem;
+	padding: 0.5rem;
 	border-radius: 1rem;
     flex-direction: column;
-    justify-content: center;
+    ${'' /* justify-content: center; */}
 	border: 1px solid;
+    ${'' /* align-items: center; */}
 	border-color: ${SecondaryColor};
 	background-color: ${GreyColor};
-    align-items: center;
     margin: 2;
     text-align: center;
     border-radius: 20;
@@ -77,6 +77,8 @@ const ItemDetailsButton = styled(Link)`
 	text-decoration: none;
 	font-size: 1rem;
 	color: black;
+	align-self: flex-end;
+	justify-content: flex-end;
 	width: 8rem;
 	height: 2.4rem;
 	padding: 0.5rem;
