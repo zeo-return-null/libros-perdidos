@@ -79,6 +79,7 @@ export default ItemListContainer;
 
 const ItemListDiv = styled.div`
 	display: flex;
+
 	flex-direction: column;
 	align-content: center;
 	justify-content: top;

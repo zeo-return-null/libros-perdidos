@@ -2,25 +2,26 @@ import styled from "styled-components";
 import { ItemCount } from "./ItemCount";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { PrimaryColor, SecondaryColor, DarkColor } from "../assets/ColorTheme";
+import {
+	PrimaryColor,
+	SecondaryColor,
+	LightColor,
+	DarkColor,
+} from "../assets/ColorTheme";
 import { CartContext } from "./CartContext";
 
-
 const ItemDetail = ({ product }) => {
-
-	const [clicked, setClicked] = useState(false)
+	const [clicked, setClicked] = useState(false);
 
 	const { addToCart } = useContext(CartContext);
-	
-	const onAdd = (count) => {
 
+	const onAdd = (count) => {
 		addToCart(product, count);
-		setClicked(true)
+		setClicked(true);
 	};
 
-
 	return (
-		<ItemDetails>	
+		<ItemDetails>
 			<ImageContainer>
 				<Image src={product.url} alt={product.name} />
 			</ImageContainer>
@@ -29,23 +30,32 @@ const ItemDetail = ({ product }) => {
 			<ItemDescription>{product.description}</ItemDescription>
 			<ItemStock>Stock disponible: {product.stock} unidades.</ItemStock>
 			<ItemPrice>$ {product.price}</ItemPrice>
-			{clicked 
-			? <ButtonsContainer>
-				<BuyDetailsButton to="/carrito">Ir al carrito</BuyDetailsButton>
-				<ContinueShoppingButton  to="/">Continuar comprando</ContinueShoppingButton>
-			</ButtonsContainer>
-			: <ItemCount initial={1} product={product} onAdd={onAdd} 
-			/>}
+			{clicked ? (
+				<ButtonsContainer>
+					<BuyDetailsButton to="/carrito">
+						Ir al carrito
+					</BuyDetailsButton>
+					<ContinueShoppingButton to="/">
+						Continuar comprando
+					</ContinueShoppingButton>
+				</ButtonsContainer>
+			) : (
+				<ItemCount initial={1} product={product} onAdd={onAdd} />
+			)}
 		</ItemDetails>
-	)
-}
+	);
+};
+
+export default ItemDetail;
 
 const ItemDetails = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	margin: 1rem;
-	border: 1px solid black;
+	border-radius: 12px;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+	background-color: ${LightColor};
 	width: 80%;
 `;
 const ImageContainer = styled.div`
@@ -57,10 +67,11 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled.img`
-	align-self:center;
+	align-self: center;
 	width: 10rem;
 	height: 12rem;
-	border: 1px solid black;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+	border-radius: 0.3rem;
 `;
 
 const ItemTitle = styled.h3`
@@ -95,7 +106,6 @@ const ButtonsContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-
 `;
 
 const ButtonStyle = styled(Link)`
@@ -103,12 +113,12 @@ const ButtonStyle = styled(Link)`
 	text-decoration: none;
 	text-align: center;
 	font-size: 1rem;
-	color: black;
+	color: ${DarkColor};
 	width: auto;
 	height: 2.4rem;
 	margin: 1rem;
-	padding:  0.5rem 0.5rem 0 0.5rem;
-	border: 1px solid ${DarkColor};
+	padding: 0.5rem 0.5rem 0 0.5rem;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 	border-radius: 0.3rem;
 	background-color: ${PrimaryColor};
 	transition: ease-in-out 150ms;
@@ -116,15 +126,10 @@ const ButtonStyle = styled(Link)`
 	:hover {
 		background-color: ${SecondaryColor};
 		transition: ease-in-out 150ms;
+		box-shadow: rgba(0, 0, 0, 0.5) 2.4px 2.4px 3.2px;
 	}
 `;
 
-const BuyDetailsButton = styled(ButtonStyle)`
-`;
+const BuyDetailsButton = styled(ButtonStyle)``;
 
-const ContinueShoppingButton = styled(ButtonStyle)`
-`;
-
-
-export default ItemDetail;
-
+const ContinueShoppingButton = styled(ButtonStyle)``;

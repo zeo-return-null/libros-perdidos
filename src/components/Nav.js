@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import CartWidget from "./CartWidget";
-import { DarkColor, SecondaryColor, LightColor } from "../assets/ColorTheme";
+import { DarkColor, SecondaryColor, GreyColor } from "../assets/ColorTheme";
 import { NavLink } from "react-router-dom";
-
 
 const Nav = ({ links }) => {
 	return (
@@ -18,17 +17,15 @@ const Nav = ({ links }) => {
 						Categorias
 					</NavLink>
 					<ul className="Categories">
-						
 						{links.map(({ id, route, name }) => {
 							return (
 								<li className="CategoryItem" key={id}>
-									<NavLink  to={route} className="Button">
+									<NavLink to={route} className="Button">
 										{name}
 									</NavLink>
 								</li>
 							);
 						})}
-						
 					</ul>
 				</li>
 				<li>
@@ -43,7 +40,22 @@ export default Nav;
 
 const NavContainer = styled.nav`
 	margin-top: 1rem;
-	transform: translateX(-30%);
+
+	transition: ease-in-out 150ms;
+
+	@media screen and (max-width: 1200px) {
+		transform: translateX(-30%);
+	}
+	@media screen and (max-width: 800px) {
+		transform: translateX(-5%);
+	}
+	@media screen and (max-width: 600px) {
+		transform: translateX(0);
+	}
+	@media screen and (max-width: 450px) {
+		transform: translateX(0);
+		font-size: 1rem;
+	}
 
 	.LinkList {
 		list-style: none;
@@ -66,6 +78,12 @@ const NavContainer = styled.nav`
 		float: left;
 		margin: 0 1rem 0 0;
 		padding: 0;
+		@media screen and (max-width: 600px) {
+			margin: 0 0.5rem 0 0;
+		}
+		@media screen and (max-width: 450px) {
+			margin: 0 rem 0 0;
+		}
 	}
 
 	.Categories {
@@ -79,8 +97,8 @@ const NavContainer = styled.nav`
 	.CategoryItem {
 		float: none;
 		margin: 1rem;
-		width: 15rem;
-		background-color: ${LightColor};
+		width: 14rem;
+		background-color: ${GreyColor};
 	}
 
 	.LinkList ul a {
@@ -89,6 +107,19 @@ const NavContainer = styled.nav`
 
 	.LinkList li:hover > ul {
 		display: block;
+
+		@media screen and (max-width: 1200px) {
+			transform: translateX(0);
+		}
+		@media screen and (max-width: 800px) {
+			transform: translateX(-12%);
+		}
+		@media screen and (max-width: 600px) {
+			transform: translateX(-25%);
+		}
+		@media screen and (max-width: 450px) {
+			transform: translateX(-24%);
+		}
 	}
 
 	ul {
@@ -107,7 +138,7 @@ const NavContainer = styled.nav`
 		box-sizing: content-box;
 		text-align: center;
 		color: ${DarkColor};
-		background-color: ${LightColor};
+		background-color: ${GreyColor};
 		transition: ease-in-out 150ms;
 	}
 
@@ -115,6 +146,10 @@ const NavContainer = styled.nav`
 		transition: ease-in-out 150ms;
 		border-style: solid bottom;
 		border-width: 2px;
-		background-image: linear-gradient(180deg, ${LightColor} 85%, ${SecondaryColor} 100% );
+		background-image: linear-gradient(
+			180deg,
+			${GreyColor} 85%,
+			${SecondaryColor} 100%
+		);
 	}
 `;

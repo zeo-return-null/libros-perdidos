@@ -2,12 +2,9 @@ import styled from "styled-components";
 import { ItemCount } from "./ItemCount";
 
 const Details = ({ product }) => {
-
 	const initial = 1;
 
-	const onAdd = () => {
-	};
-
+	const onAdd = () => {};
 
 	return (
 		<>
@@ -19,11 +16,12 @@ const Details = ({ product }) => {
 			<ItemDescription>{product.description}</ItemDescription>
 			<ItemStock>Stock disponible: {product.stock} unidades.</ItemStock>
 			<ItemPrice>$ {product.price}</ItemPrice>
-			<ItemCount initial={initial} stock={product.stock} onAdd={ onAdd } />
+			<ItemCount initial={initial} stock={product.stock} onAdd={onAdd} />
 		</>
-	)
-}
+	);
+};
 
+export default Details;
 
 const ImageContainer = styled.div`
 	width: 100%;
@@ -34,10 +32,9 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled.img`
-	align-self:center;
+	align-self: center;
 	width: 10rem;
 	height: 12rem;
-	border: 1px solid black;
 `;
 
 const ItemTitle = styled.h3`
@@ -67,5 +64,3 @@ const ItemStock = styled.p`
 	text-align: center;
 	font-size: 1.2rem;
 `;
-
-export default Details;

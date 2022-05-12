@@ -6,13 +6,23 @@ import Cart from "./components/Cart";
 import CustomProvider from "./components/CartContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 const App = () => {
-
 	const links = [
-		{ id: 1, route: "categorias/ficción", name: "Libros de Ciencia Ficción" },
-		{ id: 2, route: "categorias/terror", name: "Libros de Terror" },
-		{ id: 3, route: "categorias/fantasia", name: "Libros de Fantasia" },
+		{
+			id: 1,
+			route: "categorias/ficción",
+			name: "Libros de Ciencia Ficción",
+		},
+		{ 
+			id: 2,
+			route: "categorias/terror",
+			name: "Libros de Terror" 
+		},
+		{ 
+			id: 3, 
+			route: "categorias/fantasia", 
+			name: "Libros de Fantasia" 
+		},
 	];
 
 	return (
@@ -22,8 +32,14 @@ const App = () => {
 				<Main>
 					<Routes>
 						<Route path="/" element={<ItemListContainer />} />
-						<Route path="/categorias/:category" element={<ItemListContainer />} />
-						<Route path="/item/:id" element={<ItemDetailContainer />} />
+						<Route
+							path="/categorias/:category"
+							element={<ItemListContainer />}
+						/>
+						<Route
+							path="/item/:id"
+							element={<ItemDetailContainer />}
+						/>
 						<Route path="/carrito" element={<Cart />} />
 					</Routes>
 				</Main>

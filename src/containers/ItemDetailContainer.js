@@ -12,17 +12,18 @@ const ItemDetailContainer = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-
 		const libros = doc(db, "libros", id);
-		
+
 		getDoc(libros)
 			.then((snapshot) => {
-				let requestedProduct = { id: snapshot.id, ...snapshot.data()}
+				let requestedProduct = { id: snapshot.id, ...snapshot.data() };
 				setProduct(requestedProduct);
 				setLoading(false);
 			})
 			.catch(() => {
-				console.error("Oh no! Algo malió sal, quiero decir, ¡algo salio mal!");
+				console.error(
+					"Oh no! Algo malió sal, quiero decir, ¡algo salio mal!"
+				);
 			});
 	}, [id]);
 
@@ -31,11 +32,13 @@ const ItemDetailContainer = () => {
 			{loading ? (
 				<DescriptionMessage>Aguarde un momento</DescriptionMessage>
 			) : (
-				<ItemDetail key={ product.id } product={ product } />
+				<ItemDetail key={product.id} product={product} />
 			)}
 		</ItemContainer>
 	);
 };
+
+export default ItemDetailContainer;
 
 const ItemContainer = styled.div`
 	width: 100%;
@@ -46,5 +49,3 @@ const ItemContainer = styled.div`
 `;
 
 const DescriptionMessage = styled.p``;
-
-export default ItemDetailContainer;

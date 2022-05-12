@@ -11,6 +11,8 @@ const ItemList = ({ products }) => {
 	);
 };
 
+export default ItemList;
+
 const ItemListDiv = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -18,5 +20,3 @@ const ItemListDiv = styled.div`
 	align-items: center;
 	flex-wrap: wrap;
 `;
-
-export default ItemList;

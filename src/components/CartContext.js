@@ -20,22 +20,25 @@ const CustomProvider = ({ children }) => {
 	const [buyerInfo, setBuyerInfo] = useState(false);
 	const [bundleBuyID, setBundleBuyID] = useState("");
 
-	useEffect((cartTotal) => {
-		const getProductsQty = () => {
-			let qty = 0;
-			let price = 0;
-			cart.forEach((product) => {
-				qty += product.qty;
-				price += product.price * product.qty;
-			});
-			setCartTotal({ qty: qty, price: price });
-			return cartTotal;
-		};
-		getProductsQty();
-		if (cartTotal === undefined) {
-			return;
-		}
-	}, [cart]);
+	useEffect(
+		(cartTotal) => {
+			const getProductsQty = () => {
+				let qty = 0;
+				let price = 0;
+				cart.forEach((product) => {
+					qty += product.qty;
+					price += product.price * product.qty;
+				});
+				setCartTotal({ qty: qty, price: price });
+				return cartTotal;
+			};
+			getProductsQty();
+			if (cartTotal === undefined) {
+				return;
+			}
+		},
+		[cart]
+	);
 
 	const addToCart = (product, qty) => {
 		const newProduct = {
