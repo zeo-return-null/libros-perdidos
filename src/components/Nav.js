@@ -40,8 +40,8 @@ export default Nav;
 
 const NavContainer = styled.nav`
 	margin-top: 1rem;
-
 	transition: ease-in-out 150ms;
+	transform: translateX(-30%);
 
 	@media screen and (max-width: 1200px) {
 		transform: translateX(-30%);
