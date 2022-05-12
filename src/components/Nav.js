@@ -14,7 +14,7 @@ const Nav = ({ links }) => {
 				</li>
 				<li>
 					<NavLink to="/" className="Button">
-						Categorias
+						Categorías
 					</NavLink>
 					<ul className="Categories">
 						{links.map(({ id, route, name }) => {

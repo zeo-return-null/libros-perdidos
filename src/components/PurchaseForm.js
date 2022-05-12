@@ -28,7 +28,7 @@ const LoginForm = () => {
 					if (!values.name) {
 						errors.name = "Requerido";
 					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,60}$/.test(values.name)) {
-						errors.name = "El nombre no es valido";
+						errors.name = "El nombre no es válido";
 					}
 
 					if (!values.mail) {
@@ -38,7 +38,7 @@ const LoginForm = () => {
 							values.mail
 						)
 					) {
-						errors.mail = "Ingrese una dirección de email valida";
+						errors.mail = "Ingrese una dirección de email válida";
 					}
 
 					if (!values.confirmationMail) {
@@ -49,7 +49,7 @@ const LoginForm = () => {
 						)
 					) {
 						errors.confirmationMail =
-							"Ingrese una dirección de email valida";
+							"Ingrese una dirección de email válida";
 					}
 
 					if (values.confirmationMail !== values.mail) {
@@ -60,14 +60,14 @@ const LoginForm = () => {
 					if (!values.direction) {
 						errors.direction = "Requerido";
 					} else if (/^[a-zA-ZÀ-ÿ\s]{1,80}$/.test(values.direction)) {
-						errors.direction = "La dirección no es valida";
+						errors.direction = "La dirección no es válida";
 					}
 
 					if (!values.phone) {
 						errors.phone = "Requerido";
 					} else if (/^[09][0-9]{1,7}$/.test(values.phone)) {
 						errors.phone =
-							"Debe ingresar un numero telefonico valido";
+							"Debe ingresar un numero telefonico válido";
 					}
 
 					return errors;
@@ -79,12 +79,12 @@ const LoginForm = () => {
 				{({ errors }) => (
 					<StyledForm>
 						<FieldContainer>
-							<label htmlFor="name">Nombre</label>
+							<label htmlFor="name">Nombre y apellido</label>
 							<StyledField
 								type="text"
 								id="name"
 								name="name"
-								placeholder="Pepe Perez"
+								placeholder="Pepe González"
 							/>
 							<Error
 								name="name"
@@ -92,7 +92,7 @@ const LoginForm = () => {
 							/>
 						</FieldContainer>
 						<FieldContainer>
-							<label htmlFor="direction">Direccion</label>
+							<label htmlFor="direction">Dirección</label>
 							<StyledField
 								type="text"
 								id="direction"
@@ -105,12 +105,12 @@ const LoginForm = () => {
 							/>
 						</FieldContainer>
 						<FieldContainer>
-							<label htmlFor="mail">Correo electronico</label>
+							<label htmlFor="mail">Correo electrónico</label>
 							<StyledField
 								type="text"
 								id="mail"
 								name="mail"
-								placeholder="correo@electronico.com"
+								placeholder="correo@electrónico.com"
 							/>
 							<Error
 								name="mail"
@@ -119,13 +119,13 @@ const LoginForm = () => {
 						</FieldContainer>
 						<FieldContainer>
 							<label htmlFor="confirmationMail">
-								Confirme su correo electronico
+								Confirme su correo electrónico
 							</label>
 							<StyledField
 								type="text"
 								id="confirmationMail"
 								name="confirmationMail"
-								placeholder="correo@electronico.com"
+								placeholder="correo@electrónico.com"
 							/>
 							<Error
 								name="confirmationMail"
@@ -135,7 +135,7 @@ const LoginForm = () => {
 							/>
 						</FieldContainer>
 						<FieldContainer>
-							<label htmlFor="phone">Numero telefonico</label>
+							<label htmlFor="phone">Numero telefónico</label>
 							<StyledField
 								type="text"
 								id="phone"
@@ -191,7 +191,7 @@ const StyledField = styled(Field)`
 	box-shadow: rgba(0, 0, 0, 0.25) 2.4px 2.4px 3.2px;
 	border-radius: 0.3rem;
 	background-color: ${LightColor};
-	
+
 	:focus-visible {
 		outline: none;
 		box-shadow: rgba(0, 0, 0, 0.5) 2.4px 2.4px 3.2px;

@@ -55,7 +55,7 @@ const Cart = () => {
 			<CartTitle>
 				{cart.length > 0
 					? `Su carrito posee ${cartTotal.qty} productos con un valor total de $ ${cartTotal.price}`
-					: "Su carrito esta vacio"}
+					: "Su carrito está vacío "}
 			</CartTitle>
 			<CartItemContainer>
 				{cart.map((product) => (
