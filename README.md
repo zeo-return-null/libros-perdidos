@@ -31,16 +31,16 @@ Este proyecto fue maquetado con [Create React App](https://github.com/facebook/c
 
 # Uso
 
-El sitio posee un inicio, categorias y un carrito de compras. 
+El sitio posee un inicio, categorías y un carrito de compras. 
 
 En el inicio se visualizan todos los productos disponibles. 
 
-Al seleccionar una categoria se solicita el contenido filtrado a Firebase para luego renderizarlo dentro de un contenedor. 
+Al seleccionar una categoría se solicita el contenido filtrado a Firebase para luego renderizarlo dentro de un contenedor. 
 
 Al seleccionar un producto este es renderizado dentro de un contenedor con sus detalles. Desde aquí es posible añadirlo al carrito de compras.
 
-Al entrar al carrito de compras, si este se encuentra vacio muestra un mensaje y permite redirigir hacia los productos. 
-En caso de haber seleccionado productos, permite rellenar un formulario para obtener los datos: Nombre y apellido, dirección, email y telefono de contacto.
+Al entrar al carrito de compras, si este se encuentra vacío muestra un mensaje y permite redirigir hacia los productos. 
+En caso de haber seleccionado productos, permite rellenar un formulario para obtener los datos: Nombre y apellido, dirección, email y teléfono de contacto. Luego de finalizado el proceso de compra se muestra el ID de la orden de compra.
 
 ### Navegando el Sitio
 
